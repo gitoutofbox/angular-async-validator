@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <label for="login">Login:</label>
+  <input id="login" formControlName="login">
+
+
+  <button [disabled]="form.invalid || form.pending">
+    Send
+    <span *ngIf="form.get('login').pending"> (searching)</span>
+  </button>
+
+  <p style="color: red" *ngIf="form.get('login').errors?.userNameExists">Not available</p>
+
+  <hr>
+
+  <small>NOTE: Bret, Samantha, Karianne are already taken. Try them</small>
+
+
+</form>
